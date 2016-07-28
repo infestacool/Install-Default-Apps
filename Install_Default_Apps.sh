@@ -1,5 +1,4 @@
 #!/bin/sh
-# Script modified from code found here http://superuser.com/a/602692
 
 temp=$TMPDIR$(uuidgen)
 mkdir -p $temp/mount
