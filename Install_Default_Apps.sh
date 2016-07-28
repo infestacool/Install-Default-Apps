@@ -16,7 +16,7 @@ install_app ()	{
 curl https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg > $temp/Chrome.dmg
 	install_app Chrome.dmg
 	
-curl http://mirror.lstn.net/videolan/vlc/2.2.4/macosx/vlc-2.2.4.dmg > $temp\VLC.dmg
+curl http://mirror.lstn.net/videolan/vlc/2.2.4/macosx/vlc-2.2.4.dmg > $temp/VLC.dmg
 	install_app VLC.dmg
 
 wget -O $temp/Firefox.dmg "http://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US"
