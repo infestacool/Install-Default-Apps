@@ -3,6 +3,8 @@
 temp=$TMPDIR$(uuidgen)
 mkdir -p $temp/mount
 
+curl -s https://raw.githubusercontent.com/rudix-mac/rpm/2015.10.20/rudix.py | sudo python - install rudix
+
 install_app ()	{
 	yes | hdiutil attach -noverify -nobrowse -mountpoint $temp/mount $temp/$1
 	cp -r $temp/mount/*.app /Applications
@@ -14,9 +16,6 @@ curl https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg > $temp/Chrom
 	
 #curl http://mirror.lstn.net/videolan/vlc/2.2.4/macosx/vlc-2.2.4.dmg > $temp/VLC.dmg
 #	install_app VLC.dmg
-
-curl https://raw.githubusercontent.com/rudix-mac/packages/master/10.11/wget-1.18-0.pkg > $temp\wget.pkg
-	sudo installer -pkg wget.pkg -target /
 
 wget -O $temp/Firefox.dmg "http://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US"
 	install_app Firefox.dmg
