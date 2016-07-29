@@ -14,11 +14,16 @@ install_app ()	{
 curl https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg > $temp/Chrome.dmg
 	install_app Chrome.dmg
 	
-wget -O VLC.dmg https://get.videolan.org/vlc/2.2.4/macosx/VLC-webplugin-2.2.4.dmg > $temp/VLC.dmg
+wget -O  $temp/VLC.dmg https://get.videolan.org/vlc/2.2.4/macosx/VLC-webplugin-2.2.4.dmg
 	install_app VLC.dmg
 
 wget -O $temp/Firefox.dmg "http://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US"
 	install_app Firefox.dmg
+
+wget -O $temp/Silverlight.dmg "http://go.microsoft.com/fwlink/?LinkID=229322"
+	hdiutil attach $temp/Silverlight.dmg
+	sudo installer -pkg /Volumes/Silverlight/silverlight.pkg -target /
+	hdiutil detach /Volumes/Silverlight
 
 rm -r $temp
 
