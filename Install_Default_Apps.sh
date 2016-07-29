@@ -20,10 +20,17 @@ wget -O  $temp/VLC.dmg https://get.videolan.org/vlc/2.2.4/macosx/VLC-webplugin-2
 wget -O $temp/Firefox.dmg "http://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US"
 	install_app Firefox.dmg
 
+wget --no-check-certificate -O $temp/MBAM.dmg https://store.malwarebytes.com/342/purl-mbamm-dl
+	install_app MBAM.dmg
+
+
 wget -O $temp/Silverlight.dmg "http://go.microsoft.com/fwlink/?LinkID=229322"
 	hdiutil attach $temp/Silverlight.dmg
 	sudo installer -pkg /Volumes/Silverlight/silverlight.pkg -target /
 	hdiutil detach /Volumes/Silverlight
+
+# HP Printer drivers http://support.apple.com/downloads/DL907/en_US/hpprinterdriver3.1.dmg
+# Ricoh Printer Drivers http://support.apple.com/downloads/DL1867/en_US/ricohprinterdrivers3.0.dmg
 
 rm -r $temp
 
