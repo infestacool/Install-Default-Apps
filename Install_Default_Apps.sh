@@ -4,6 +4,7 @@ temp=$TMPDIR$(uuidgen)
 mkdir -p $temp/mount
 
 curl -s https://raw.githubusercontent.com/rudix-mac/rpm/2015.10.20/rudix.py | sudo python - install rudix
+sudo rudix install wget
 
 install_app ()	{
 	echo Installing $1
