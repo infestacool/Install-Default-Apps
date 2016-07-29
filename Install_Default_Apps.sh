@@ -12,7 +12,7 @@ install_app ()	{
 	hdiutil detach $temp/mount
 	}
 
-curl https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg > $temp/Chrome.dmg
+curl -m 30 https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg > $temp/Chrome.dmg
 	install_app Chrome.dmg
 
 wget -O  $temp/VLC.dmg https://get.videolan.org/vlc/2.2.4/macosx/VLC-webplugin-2.2.4.dmg
