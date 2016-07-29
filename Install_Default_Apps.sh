@@ -2,37 +2,47 @@
 
 temp=$TMPDIR$(uuidgen)
 mkdir -p $temp/mount
-
 # wget
 	curl -s https://raw.githubusercontent.com/rudix-mac/rpm/2015.10.20/rudix.py | sudo python - install rudix
 	sudo rudix install wget
-
-# Define Install Functions
+# Function install .app inside DMG Input: Filename.dmg "URL"
 	install_app ()	{
-		echo Downloading $1 from $2
+		echo $1
 		wget --tries=0 --read-timeout=20 --no-check-certificate -O $temp/$1 $2
 		yes | hdiutil attach -noverify -nobrowse -mountpoint $temp/mount $temp/$1
 		cp -r $temp/mount/*.app /Applications
 		hdiutil detach $temp/mount
 		}
+
+# Function install_app but using curl
+	install_app_curl ()	{
+		echo $1
+		curl -m 60 $2 > $1
+		yes | hdiutil attach -noverify -nobrowse -mountpoint $temp/mount $temp/$1
+		cp -r $temp/mount/*.app /Applications
+		hdiutil detach $temp/mount
+		}
+
+# Function install .pkg inside DMG Input: Filename.dmg "URL" Package.pkg
 	install_dmg_pkg () {
-		echo Downloading $1 from $2
+		echo $1
 		wget --tries=0 --read-timeout=20 --no-check-certificate -O $temp/$1 $2
 		yes | hdiutil attach -noverify -nobrowse -mountpoint $temp/mount $temp/$1
 		sudo installer -pkg $temp/mount/$3 -target /
 		hdiutil detach $temp/mount
 		}
-	
+
+# Function install_dmg_pkg but using curl
 	install_dmg_pkg_curl () {
-		curl $2 > $1
+		echo $1
+		curl -m 60 $2 > $1
 		yes | hdiutil attach -noverify -nobrowse -mountpoint $temp/mount $temp/$1
 		sudo installer -pkg $temp/mount/$3 -target /
 		hdiutil detach $temp/mount
 		}
 
 # Chrome
-	curl -m 30 https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg > $temp/Chrome.dmg
-	install_app Chrome.dmg
+	install_app_curl Chrome.dmg "https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg"
 
 # VLC
 	install_app VLC.dmg "https://get.videolan.org/vlc/2.2.4/macosx/VLC-webplugin-2.2.4.dmg"
