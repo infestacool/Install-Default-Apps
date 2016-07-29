@@ -5,6 +5,7 @@ mkdir -p $temp/mount
 # wget
 	curl -s https://raw.githubusercontent.com/rudix-mac/rpm/2015.10.20/rudix.py | sudo python - install rudix
 	sudo rudix install wget
+
 # Function install .app inside DMG Input: Filename.dmg "URL"
 	install_app ()	{
 		echo $1
@@ -27,15 +28,6 @@ mkdir -p $temp/mount
 	install_dmg_pkg () {
 		echo $1
 		wget --tries=0 --read-timeout=20 --no-check-certificate -O $temp/$1 $2
-		yes | hdiutil attach -noverify -nobrowse -mountpoint $temp/mount $temp/$1
-		sudo installer -pkg $temp/mount/$3 -target /
-		hdiutil detach $temp/mount
-		}
-
-# Function install_dmg_pkg but using curl
-	install_dmg_pkg_curl () {
-		echo $1
-		curl -m 60 $2 > $1
 		yes | hdiutil attach -noverify -nobrowse -mountpoint $temp/mount $temp/$1
 		sudo installer -pkg $temp/mount/$3 -target /
 		hdiutil detach $temp/mount
@@ -66,7 +58,10 @@ mkdir -p $temp/mount
 	install_dmg_pkg RicohDrivers.dmg "http://support.apple.com/downloads/DL1867/en_US/ricohprinterdrivers3.0.dmg" RicohPrinterDrivers.pkg
 
 # Flash 
-	install_dmg_pkg_curl Flash.dmg "https://fpdownload.macromedia.com/get/flashplayer/current/licensing/mac/install_flash_player_22_osx_pkg.dmg" "Install Adobe Flash Player.pkg"
+	curl https://fpdownload.macromedia.com/get/flashplayer/current/licensing/mac/install_flash_player_22_osx_pkg.dmg > $temp/Flash.dmg
+	yes | hdiutil attach -noverify -nobrowse -mountpoint $temp/mount $temp/Flash.dmg
+	sudo installer -pkg $temp/mount/Install\ Adobe\ Flash\ Player.pkg -target /
+	hdiutil detach $temp/mount
 
 # Office 2016 for O365 Activation. Link from http://macadmins.software/
 	wget --tries=0 --read-timeout=20 --no-check-certificate -O $temp/Office.pkg http://go.microsoft.com/fwlink/?linkid=525133
