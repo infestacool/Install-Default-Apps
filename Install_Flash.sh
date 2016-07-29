@@ -16,7 +16,7 @@ install_dmg_pkg_curl () {
 		}
 
 # Flash 
-	install_dmg_pkg_curl Flash.dmg "https://fpdownload.macromedia.com/get/flashplayer/current/licensing/mac/install_flash_player_22_osx_pkg.dmg" "Install\ Adobe\ Flash\ Player.pkg"
+	install_dmg_pkg_curl Flash.dmg "https://fpdownload.macromedia.com/get/flashplayer/current/licensing/mac/install_flash_player_22_osx_pkg.dmg" "Install Adobe Flash Player.pkg"
 
 rm -r $temp
 
