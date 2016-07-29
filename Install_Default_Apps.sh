@@ -23,14 +23,18 @@ wget -O $temp/Firefox.dmg "http://download.mozilla.org/?product=firefox-latest&o
 wget --no-check-certificate -O $temp/MBAM.dmg https://store.malwarebytes.com/342/purl-mbamm-dl
 	install_app MBAM.dmg
 
-
 wget -O $temp/Silverlight.dmg "http://go.microsoft.com/fwlink/?LinkID=229322"
 	hdiutil attach $temp/Silverlight.dmg
 	sudo installer -pkg /Volumes/Silverlight/silverlight.pkg -target /
 	hdiutil detach /Volumes/Silverlight
 
+# Link from http://macadmins.software/
+wget -O $temp/Office.pgk http://go.microsoft.com/fwlink/?linkid=525133
+	sudo installer -pkg $temp/Office.pkg -target /
+
 # HP Printer drivers http://support.apple.com/downloads/DL907/en_US/hpprinterdriver3.1.dmg
 # Ricoh Printer Drivers http://support.apple.com/downloads/DL1867/en_US/ricohprinterdrivers3.0.dmg
+# XQuartz https://dl.bintray.com/xquartz/downloads/XQuartz-2.7.9.dmg
 
 rm -r $temp
 
