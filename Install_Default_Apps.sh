@@ -37,7 +37,8 @@ wget --tries=0 --read-timeout=20 --no-check-certificate -O $temp/Office.pkg http
 # XQuartz 
 wget --no-check-certificate -O $temp/XQuartz.dmg https://dl.bintray.com/xquartz/downloads/XQuartz-2.7.9.dmg
 	hdiutil attach $temp/XQuartz.dmg
-
+	sudo installer -pkg /Volumes/XQuartz-2.7.9/XQuartz.pkg -target /
+	hdiutil detach /Volumes/XQuartz-2.7.9
 
 # Flash 
 curl https://fpdownload.macromedia.com/get/flashplayer/current/licensing/mac/install_flash_player_22_osx_pkg.dmg > $temp/Flash.dmg
