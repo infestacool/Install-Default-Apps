@@ -37,7 +37,7 @@ mkdir -p $temp/mount
 	install_app_curl Chrome.dmg "https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg"
 
 # VLC
-	install_app VLC.dmg "https://get.videolan.org/vlc/2.2.4/macosx/VLC-webplugin-2.2.4.dmg"
+	install_app VLC.dmg "https://get.videolan.org/vlc/2.2.4/macosx/vlc-2.2.4.dmg"
 
 # Firefox	
 	install_app Firefox.dmg "http://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US"
