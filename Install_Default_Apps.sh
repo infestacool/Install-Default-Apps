@@ -10,7 +10,7 @@ mkdir -p $temp/mount
 
 # Function install .app inside DMG Input: Filename.dmg "URL"
 	install_app ()	{
-		echo $1
+		printf "\033[1;31mInstalling \033[0m\n"  $1
 		wget --tries=0 --read-timeout=20 --no-check-certificate -O $temp/$1 $2
 		yes | hdiutil attach -noverify -nobrowse -mountpoint $temp/mount $temp/$1
 		cp -r $temp/mount/*.app /Applications
