@@ -2,13 +2,13 @@
 
 temp=$TMPDIR$(uuidgen)
 mkdir -p $temp/mount
-# wget
-	curl -s https://raw.githubusercontent.com/rudix-mac/rpm/2015.10.20/rudix.py | sudo python - install rudix
-	sudo rudix install wget
+# Homebrew wget
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	brew install wget
 
 # Function install .app inside DMG Input: Filename.dmg "URL"
 	install_app ()	{
-		echo $1
+		echo Installing $1
 		wget --tries=0 --read-timeout=20 --no-check-certificate -O $temp/$1 $2
 		yes | hdiutil attach -noverify -nobrowse -mountpoint $temp/mount $temp/$1
 		cp -r $temp/mount/*.app /Applications
@@ -17,7 +17,7 @@ mkdir -p $temp/mount
 
 # Function install_app but using curl
 	install_app_curl ()	{
-		echo $1
+		echo Installing $1
 		curl -m 60 $2 > $1
 		yes | hdiutil attach -noverify -nobrowse -mountpoint $temp/mount $temp/$1
 		cp -r $temp/mount/*.app /Applications
@@ -26,7 +26,7 @@ mkdir -p $temp/mount
 
 # Function install .pkg inside DMG Input: Filename.dmg "URL" Package.pkg
 	install_dmg_pkg () {
-		echo $1
+		echo Installing $1
 		wget --tries=0 --read-timeout=20 --no-check-certificate -O $temp/$1 $2
 		yes | hdiutil attach -noverify -nobrowse -mountpoint $temp/mount $temp/$1
 		sudo installer -pkg $temp/mount/$3 -target /
@@ -45,7 +45,7 @@ mkdir -p $temp/mount
 # Malware Bytes
 	install_app MBAM.dmg "https://store.malwarebytes.com/342/purl-mbamm-dl"
 
-#Silverlight
+# Silverlight
 	install_dmg_pkg Silverlight.dmg "http://go.microsoft.com/fwlink/?LinkID=229322" silverlight.pkg
 
 # XQuartz 
