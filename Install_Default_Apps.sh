@@ -8,7 +8,7 @@ mkdir -p $temp/mount
 
 # Function install .app inside DMG Input: Filename.dmg "URL"
 	install_app ()	{
-		echo -e "\e[92m" $1
+		echo -e \e[92m$1
 		wget --tries=0 --read-timeout=20 --no-check-certificate -O $temp/$1 $2
 		yes | hdiutil attach -noverify -nobrowse -mountpoint $temp/mount $temp/$1
 		cp -r $temp/mount/*.app /Applications
@@ -17,7 +17,7 @@ mkdir -p $temp/mount
 
 # Function install_app but using curl
 	install_app_curl ()	{
-		echo -e "\e[92m" $1
+		echo -e \e[92m$1
 		curl -m 60 $2 > $1
 		yes | hdiutil attach -noverify -nobrowse -mountpoint $temp/mount $temp/$1
 		cp -r $temp/mount/*.app /Applications
@@ -26,7 +26,7 @@ mkdir -p $temp/mount
 
 # Function install .pkg inside DMG Input: Filename.dmg "URL" Package.pkg
 	install_dmg_pkg () {
-		echo -e "\e[92m" $1
+		echo -e \e[92m$1
 		wget --tries=0 --read-timeout=20 --no-check-certificate -O $temp/$1 $2
 		yes | hdiutil attach -noverify -nobrowse -mountpoint $temp/mount $temp/$1
 		sudo installer -pkg $temp/mount/$3 -target /
