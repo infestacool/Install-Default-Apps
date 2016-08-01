@@ -57,11 +57,8 @@ mkdir -p $temp/mount
 # Ricoh Printer Drivers 
 	install_dmg_pkg RicohDrivers.dmg "http://support.apple.com/downloads/DL1867/en_US/ricohprinterdrivers3.0.dmg" RicohPrinterDrivers.pkg
 
-# Flash 
-	curl https://fpdownload.macromedia.com/get/flashplayer/current/licensing/mac/install_flash_player_22_osx_pkg.dmg > $temp/Flash.dmg
-	yes | hdiutil attach -noverify -nobrowse -mountpoint $temp/mount $temp/Flash.dmg
-	sudo installer -pkg $temp/mount/Install\ Adobe\ Flash\ Player.pkg -target /
-	hdiutil detach $temp/mount
+# Flash Latest version using rtrouton script
+	curl https://raw.githubusercontent.com/rtrouton/rtrouton_scripts/master/rtrouton_scripts/install_latest_adobe_flash_player/install_latest_adobe_flash_player.sh | sudo bash
 	
 # Java 8 Latest version using rtrouton script
 	curl https://raw.githubusercontent.com/rtrouton/rtrouton_scripts/master/rtrouton_scripts/install_latest_oracle_java_8_jdk/install_latest_oracle_java_jdk_8.sh | sudo bash
