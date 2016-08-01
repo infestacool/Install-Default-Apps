@@ -20,7 +20,7 @@ mkdir -p $temp/mount
 # Function install_app but using curl
 	install_app_curl ()	{
 		echo $1		
-		curl -m 60 $2 > $1
+		curl -m 60 $2 > $temp/$1
 		yes | hdiutil attach -noverify -nobrowse -mountpoint $temp/mount $temp/$1
 		cp -r $temp/mount/*.app /Applications
 		hdiutil detach $temp/mount
