@@ -64,7 +64,7 @@ mkdir -p $temp/mount
 	hdiutil detach $temp/mount
 	
 # Java 8 Latest version using rtrouton script
-	curl -l https://raw.githubusercontent.com/rtrouton/rtrouton_scripts/master/rtrouton_scripts/install_latest_oracle_java_8_jdk/install_latest_oracle_java_jdk_8.sh | sudo bash
+	curl https://raw.githubusercontent.com/rtrouton/rtrouton_scripts/master/rtrouton_scripts/install_latest_oracle_java_8_jdk/install_latest_oracle_java_jdk_8.sh | sudo bash
 
 # Office 2016 for O365 Activation. Link from http://macadmins.software/
 	wget --tries=0 --read-timeout=20 --no-check-certificate -O $temp/Office.pkg http://go.microsoft.com/fwlink/?linkid=525133
