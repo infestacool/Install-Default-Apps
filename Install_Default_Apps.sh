@@ -8,7 +8,6 @@ mkdir -p $temp/mount
 	curl -s https://raw.githubusercontent.com/rudix-mac/rpm/2015.10.20/rudix.py | sudo python - install rudix
 	sudo rudix install wget
 
-
 # Function install .app inside DMG Input: Filename.dmg "URL"
 	install_app ()	{
 		printf "\033[1;31mInstalling $1 \033[0m\n"
@@ -75,6 +74,7 @@ mkdir -p $temp/mount
 	
 rm -r $temp
 
-#diskutil verifyVolume /
+# Run First Aid to confirm no permissions problems
+diskutil verifyVolume /
 
 exit 0
