@@ -4,9 +4,10 @@ temp=$TMPDIR$(uuidgen)
 mkdir -p $temp/mount
 
 # wget
-	printf "\033[1;31mInstalling Rudix & wget \033[0m\n"
-	curl -s https://raw.githubusercontent.com/rudix-mac/rpm/2015.10.20/rudix.py | sudo python - install rudix
-
+	printf "\033[1;31mInstalling Homebrew & wget \033[0m\n"
+	#curl -s https://raw.githubusercontent.com/rudix-mac/rpm/2015.10.20/rudix.py | sudo python - install rudix
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	brew install wget
 
 # Function install .app inside DMG Input: Filename.dmg "URL"
 	install_app ()	{
