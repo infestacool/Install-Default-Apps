@@ -31,7 +31,7 @@ mkdir -p $temp/mount
 	install_dmg_pkg () {
 		printf "\033[1;31mInstalling $1 \033[0m\n"
 		wget --tries=0 --read-timeout=20 --no-check-certificate -O $temp/$1 $2
-		yes | hdiutil attach -noverify -nobrowse -mountpoint $temp/mount $temp/$1
+		sudo yes | hdiutil attach -noverify -nobrowse -mountpoint $temp/mount $temp/$1
 		sudo installer -pkg $temp/mount/$3 -target /
 		hdiutil detach $temp/mount
 		}
