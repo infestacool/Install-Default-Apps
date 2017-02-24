@@ -52,10 +52,9 @@ mkdir -p $temp/mount
 	install_dmg_pkg Silverlight.dmg "http://go.microsoft.com/fwlink/?LinkID=229322" silverlight.pkg
 
 # XQuartz 
-	install_dmg_pkg XQuartz.dmg "https://dl.bintray.com/xquartz/downloads/XQuartz-2.7.9.dmg" XQuartz.pkg 
+	install_dmg_pkg XQuartz.dmg "https://dl.bintray.com/xquartz/downloads/:XQuartz-2.7.11.dmg" XQuartz.pkg 
 
 # HP Printer Drivers
-#	install_dmg_pkg HPDrivers.dmg "http://support.apple.com/downloads/DL907/en_US/hpprinterdriver3.1.dmg" HewlettPackardPrinterDrivers.pkg
 	install_dmg_pkg HPDrivers.dmg "http://support.apple.com/downloads/DL1888/en_US/hpprinterdrivers5.0.dmg" HewlettPackardPrinterDrivers.pkg
 
 # Ricoh Printer Drivers 
