@@ -55,7 +55,8 @@ mkdir -p $temp/mount
 	install_dmg_pkg XQuartz.dmg "https://dl.bintray.com/xquartz/downloads/XQuartz-2.7.9.dmg" XQuartz.pkg 
 
 # HP Printer Drivers
-	install_dmg_pkg HPDrivers.dmg "http://support.apple.com/downloads/DL907/en_US/hpprinterdriver3.1.dmg" HewlettPackardPrinterDrivers.pkg
+#	install_dmg_pkg HPDrivers.dmg "http://support.apple.com/downloads/DL907/en_US/hpprinterdriver3.1.dmg" HewlettPackardPrinterDrivers.pkg
+	install_dmg_pkg HPDrivers.dmg "http://support.apple.com/downloads/DL1888/en_US/hpprinterdrivers5.0.dmg" HewlettPackardPrinterDrivers.pkg
 
 # Ricoh Printer Drivers 
 	install_dmg_pkg RicohDrivers.dmg "http://support.apple.com/downloads/DL1867/en_US/ricohprinterdrivers3.0.dmg" RicohPrinterDrivers.pkg
@@ -74,12 +75,12 @@ mkdir -p $temp/mount
 #	sudo installer -pkg $temp/Office.pkg -target /
 
 # Office 2016 for O365 Activation. Link from http://macadmins.software/
-	printf "\033[1;31mInstalling Office 2011\033[0m\n"
-	wget --tries=0 --read-timeout=20 --no-check-certificate -O $temp/Office.pkg https://go.microsoft.com/fwlink/?linkid=273962
-	sudo installer -pkg $temp/Office.pkg -target /
+#	printf "\033[1;31mInstalling Office 2011\033[0m\n"
+#	wget --tries=0 --read-timeout=20 --no-check-certificate -O $temp/Office.pkg https://go.microsoft.com/fwlink/?linkid=273962
+#	sudo installer -pkg $temp/Office.pkg -target /
 	
-	wget --tries=0 --read-timeout=20 --no-check-certificate -O $temp/OfficeUpdate.pkg https://go.microsoft.com/fwlink/?linkid=835451
-	sudo installer -pkg $temp/OfficeUpdate.pkg -target /
+#	wget --tries=0 --read-timeout=20 --no-check-certificate -O $temp/OfficeUpdate.pkg https://go.microsoft.com/fwlink/?linkid=835451
+#	sudo installer -pkg $temp/OfficeUpdate.pkg -target /
 	
 rm -r $temp
 
